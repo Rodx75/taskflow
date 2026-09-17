@@ -1,0 +1,17 @@
+# Node / frontend
+node_modules/
+client/dist/
+npm-debug.log*
+
+# .NET / backend
+server/bin/
+server/obj/
+*.db
+*.db-shm
+*.db-wal
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
