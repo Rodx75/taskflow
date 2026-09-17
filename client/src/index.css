@@ -1,19 +1,39 @@
 :root {
-  --bg-base: #0b0b16;
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.16);
-  --accent-1: rgb(132, 144, 255);
-  --accent-2: rgb(98, 189, 252);
-  --accent-gradient: linear-gradient(120deg, var(--accent-1) 0%, var(--accent-2) 100%);
-  --text-heading: #f4f4fb;
-  --text-body: #b7b9d6;
-  --danger: #ff8080;
-  --low: #6bcf8e;
-  --medium: #ffcf6b;
-  --high: #ff6b81;
+  /* Material dark theme surfaces — flat colors, no transparency/blur */
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --surface-1: #232323; /* elevation 1dp overlay */
+  --surface-2: #282828; /* elevation 2dp overlay */
+  --surface-3: #2e2e2e; /* elevation 4dp overlay */
+  --outline: #383838;
+
+  /* Brand primary / secondary, kept flat (no gradients) */
+  --primary: #7c8aff;
+  --primary-on: #10122b;
+  --secondary: #5ec3fb;
+
+  /* Material semantic colors */
+  --success: #4caf50;
+  --warning: #ffc107;
+  --error: #f44336;
+
+  /* Text emphasis levels, Material dark-theme spec */
+  --text-high: rgba(255, 255, 255, 0.92);
+  --text-medium: rgba(255, 255, 255, 0.64);
+  --text-disabled: rgba(255, 255, 255, 0.38);
+
+  /* Material elevation — layered shadows, no blur-filter */
+  --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --elevation-2: 0 2px 4px rgba(0, 0, 0, 0.45), 0 3px 6px rgba(0, 0, 0, 0.35);
+  --elevation-4: 0 4px 8px rgba(0, 0, 0, 0.45), 0 6px 12px rgba(0, 0, 0, 0.3);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
 
   color-scheme: dark;
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-family: "Roboto", system-ui, -apple-system, sans-serif;
 }
 
 * {
@@ -23,39 +43,16 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--bg-base);
-  color: var(--text-body);
-  position: relative;
-  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text-medium);
 }
 
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.35;
-  z-index: -1;
-}
-
-body::before {
-  top: -160px;
-  left: -160px;
-  background: var(--accent-1);
-}
-
-body::after {
-  bottom: -160px;
-  right: -160px;
-  background: var(--accent-2);
-}
-
-h1, h2, h3 {
-  color: var(--text-heading);
+h1,
+h2,
+h3 {
+  color: var(--text-high);
   margin: 0;
+  font-weight: 500;
 }
 
 button {

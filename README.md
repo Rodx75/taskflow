@@ -1,6 +1,12 @@
 # TaskFlow
 
-A small full-stack task manager built to practice a clean React + .NET setup end to end: a typed REST API backed by SQLite, and a React frontend that consumes it.
+A small full-stack task manager built to practice a clean React + .NET setup end to end: a typed REST API backed by SQLite, and a React frontend that consumes it. UI follows a flat, Material Design–inspired dark theme — solid surfaces, elevation shadows instead of blur, and Material's color/typography system.
+
+![React](https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet&logoColor=white)
+![EF Core](https://img.shields.io/badge/EF%20Core-SQLite-3E4E88?logo=sqlite&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 ![TaskFlow board](screenshots/taskflow-board.png)
 
@@ -19,6 +25,15 @@ A small full-stack task manager built to practice a clean React + .NET setup end
 | Backend  | ASP.NET Core Web API (.NET 10), C#                     |
 | Data     | Entity Framework Core + SQLite                         |
 | Other    | CORS, EF Core migrations, seeded sample data            |
+
+## Design
+
+The UI leans on core Material Design principles adapted to a flat aesthetic:
+
+- **Flat surfaces, no blur** — cards and inputs use solid dark surface colors (`#1e1e1e`–`#2e2e2e`) instead of glassmorphism/backdrop-filter.
+- **Elevation over transparency** — depth comes from layered `box-shadow` recipes (Material's 1dp/2dp/4dp elevation levels), not blur or opacity.
+- **Material color roles** — a single primary accent plus semantic colors (`success`/`warning`/`error`) drive priority tags and state, all defined as CSS custom properties.
+- **Roboto** as the type family, Material's default.
 
 ## Features
 

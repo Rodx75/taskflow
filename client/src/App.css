@@ -16,41 +16,39 @@
 .app__header p {
   margin: 6px 0 0;
   font-size: 14px;
-  color: var(--text-body);
+  color: var(--text-medium);
 }
 
 .app__stats {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 50px;
+  background: var(--surface-2);
+  border-radius: var(--radius-pill);
   padding: 8px 18px;
   font-size: 14px;
-  backdrop-filter: blur(12px);
+  box-shadow: var(--elevation-1);
 }
 
 .app__stats span {
   font-weight: 700;
-  color: var(--text-heading);
+  color: var(--primary);
 }
 
 .app__state {
   text-align: center;
   padding: 30px;
-  color: var(--text-body);
+  color: var(--text-medium);
 }
 
 .app__state--error {
-  color: var(--danger);
+  color: var(--error);
 }
 
-/* Form */
+/* ---- Form: Material "filled" card + text fields ---- */
 .task-form {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 18px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
   padding: 16px;
   margin-bottom: 20px;
-  backdrop-filter: blur(16px);
+  box-shadow: var(--elevation-1);
 }
 
 .task-form__row {
@@ -69,16 +67,31 @@
 
 .task-form input,
 .task-form select {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--glass-border);
-  border-radius: 10px;
+  background: var(--surface-2);
+  border: none;
+  border-bottom: 2px solid var(--outline);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
   padding: 10px 12px;
-  color: var(--text-heading);
+  color: var(--text-high);
   font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.task-form input:hover,
+.task-form select:hover {
+  background: var(--surface-3);
+}
+
+.task-form input:focus,
+.task-form select:focus {
+  outline: none;
+  border-bottom-color: var(--primary);
+  background: var(--surface-3);
 }
 
 .task-form input::placeholder {
-  color: rgba(183, 185, 214, 0.6);
+  color: var(--text-disabled);
 }
 
 .task-form__title {
@@ -96,31 +109,39 @@
   min-width: 110px;
 }
 
+/* ---- Buttons: Material 3 filled button, flat color + elevation ---- */
 .btn {
+  position: relative;
   border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-weight: 600;
+  border-radius: var(--radius-pill);
+  padding: 10px 22px;
+  font-weight: 500;
   font-size: 14px;
+  font-family: inherit;
   cursor: pointer;
-  transition: 0.2s;
+  transition: box-shadow 0.15s, background-color 0.15s;
+  overflow: hidden;
 }
 
 .btn--primary {
-  background: var(--accent-gradient);
-  color: #ffffff;
+  background: var(--primary);
+  color: var(--primary-on);
+  box-shadow: var(--elevation-1);
 }
 
 .btn--primary:hover {
-  filter: brightness(1.1);
+  background: #8d99ff;
+  box-shadow: var(--elevation-2);
 }
 
 .btn--primary:disabled {
-  opacity: 0.6;
+  background: var(--surface-3);
+  color: var(--text-disabled);
+  box-shadow: none;
   cursor: not-allowed;
 }
 
-/* Filters */
+/* ---- Filters: Material chips ---- */
 .filter-bar {
   display: flex;
   align-items: center;
@@ -138,19 +159,25 @@
 
 .chip {
   background: transparent;
-  border: 1px solid var(--glass-border);
-  color: var(--text-body);
-  border-radius: 50px;
-  padding: 6px 14px;
+  border: 1px solid var(--outline);
+  color: var(--text-medium);
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
   font-size: 13px;
+  font-family: inherit;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.15s;
+}
+
+.chip:hover {
+  background: var(--surface-2);
 }
 
 .chip--active {
-  background: var(--accent-gradient);
-  color: #ffffff;
+  background: var(--primary);
+  color: var(--primary-on);
   border-color: transparent;
+  font-weight: 500;
 }
 
 .filter-bar__toggle {
@@ -158,45 +185,50 @@
   align-items: center;
   gap: 6px;
   font-size: 13px;
-  color: var(--text-body);
+  color: var(--text-medium);
   cursor: pointer;
 }
 
-/* Task list */
+/* ---- Task list: Material cards ---- */
 .task-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .task-card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-left: 4px solid var(--medium);
-  border-radius: 14px;
+  background: var(--surface);
+  border-radius: var(--radius-md);
   padding: 14px 16px;
-  backdrop-filter: blur(16px);
-  transition: 0.2s;
+  box-shadow: var(--elevation-1);
+  border-left: 4px solid var(--warning);
+  transition: box-shadow 0.15s;
+}
+
+.task-card:hover {
+  box-shadow: var(--elevation-2);
 }
 
 .task-card--low {
-  border-left-color: var(--low);
+  border-left-color: var(--success);
 }
 
 .task-card--medium {
-  border-left-color: var(--medium);
+  border-left-color: var(--warning);
 }
 
 .task-card--high {
-  border-left-color: var(--high);
+  border-left-color: var(--error);
 }
 
 .task-card--done {
-  opacity: 0.55;
+  background: var(--surface-1);
+  box-shadow: none;
 }
 
 .task-card--done h3 {
   text-decoration: line-through;
+  color: var(--text-disabled);
 }
 
 .task-card__top {
@@ -207,16 +239,25 @@
 
 .task-card__checkbox {
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  border: 2px solid var(--glass-border);
+  border: 2px solid var(--text-disabled);
   background: transparent;
-  color: var(--accent-2);
-  font-size: 13px;
+  color: var(--primary-on);
+  font-size: 12px;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   margin-top: 2px;
+  transition: 0.15s;
+}
+
+.task-card--done .task-card__checkbox {
+  background: var(--primary);
+  border-color: var(--primary);
 }
 
 .task-card__body {
@@ -226,13 +267,14 @@
 
 .task-card__body h3 {
   font-size: 16px;
+  font-weight: 500;
   margin-bottom: 4px;
 }
 
 .task-card__body p {
   margin: 0 0 8px;
   font-size: 13px;
-  color: var(--text-body);
+  color: var(--text-medium);
 }
 
 .task-card__meta {
@@ -241,42 +283,52 @@
   gap: 6px;
 }
 
+/* Material assist chips: flat tint background matching the semantic color */
 .tag {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 3px 10px;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-body);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--text-medium);
 }
 
 .tag--priority-low {
-  color: var(--low);
+  background: rgba(76, 175, 80, 0.16);
+  color: var(--success);
 }
 
 .tag--priority-medium {
-  color: var(--medium);
+  background: rgba(255, 193, 7, 0.16);
+  color: var(--warning);
 }
 
 .tag--priority-high {
-  color: var(--high);
+  background: rgba(244, 67, 54, 0.16);
+  color: var(--error);
 }
 
 .tag--overdue {
-  color: var(--danger);
+  background: rgba(244, 67, 54, 0.16);
+  color: var(--error);
 }
 
+/* ---- Icon button: Material IconButton state layer ---- */
 .task-card__delete {
   flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   background: transparent;
   border: none;
-  color: var(--text-body);
-  font-size: 20px;
+  color: var(--text-disabled);
+  font-size: 18px;
   line-height: 1;
   cursor: pointer;
-  padding: 0 4px;
+  transition: 0.15s;
 }
 
 .task-card__delete:hover {
-  color: var(--danger);
+  background: rgba(244, 67, 54, 0.12);
+  color: var(--error);
 }
